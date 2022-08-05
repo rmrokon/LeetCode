@@ -7,8 +7,7 @@ class Solution {
     int reverseNum(int num){
         int reversedNumber = 0;
         while(num > 0){
-            int currentDigit = num % 10;
-            reversedNumber = reversedNumber * 10 +  currentDigit;
+            reversedNumber = reversedNumber * 10 +  num % 10;
             num /= 10;
         }
         return reversedNumber;
