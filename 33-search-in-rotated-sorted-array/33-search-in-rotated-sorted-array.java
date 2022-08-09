@@ -2,6 +2,7 @@ class Solution {
     public int search(int[] nums, int target) {
         int pivot = findPivot(nums);
         // If pivot not found, that means the array is not rotated. So just do normal binary search.
+//         This will not work with duplicate values in the array
         
         if(pivot == -1){
             return findTarget(nums, target, 0, nums.length -1);
@@ -13,12 +14,8 @@ class Solution {
         
         if(target >= nums[0]){
             return findTarget(nums, target, 0, pivot - 1);
-        }
-        
-        
-         return findTarget(nums, target, pivot + 1, nums.length - 1);
-     
-        
+        }       
+        return findTarget(nums, target, pivot + 1, nums.length - 1);   
     }
     
     int findTarget(int[] nums, int target, int start, int end){
@@ -36,10 +33,6 @@ class Solution {
         return -1;
     }
     
-    int calcMid(int start, int end){
-        return start + (end - start)/2;
-    }
-    
     int findPivot(int[] nums){
         
         int start = 0;
@@ -47,7 +40,7 @@ class Solution {
         
         
         while(start <= end){
-            int mid = calcMid(start, end);
+            int mid = start + (end - start)/2;
             
             if(mid < end && nums[mid] > nums[mid + 1]){
                 return mid;
