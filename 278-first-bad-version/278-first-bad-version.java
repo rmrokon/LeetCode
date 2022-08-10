@@ -8,8 +8,9 @@ public class Solution extends VersionControl {
         
         while(firstVersion <= lastVersion){
             int midVersion = firstVersion + (lastVersion - firstVersion)/2;
-                       
-            if(isBadVersion(midVersion)){
+            boolean isBadVersion = isBadVersion(midVersion);
+            
+            if(isBadVersion){
                 lastVersion = midVersion - 1;
             }else{
                 firstVersion = midVersion + 1;
