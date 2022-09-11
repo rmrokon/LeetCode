@@ -1,7 +1,7 @@
 class Solution {
     public int[] findErrorNums(int[] nums) {
         int i = 0;
-        int[] ans = new int[2];
+        
         while(i < nums.length){
             int correctIndex = nums[i] - 1;
             if(nums[i] != nums[correctIndex]){
@@ -14,10 +14,9 @@ class Solution {
         }
         for(int j = 0; j < nums.length; j++){
             if(nums[j] != j + 1){
-                ans[0] = nums[j];
-                ans[1] = j + 1;
+                return new int[] {nums[j], j + 1};
             }
         }
-        return ans;
+        return new int[] {-1, -1};
     }
 }
